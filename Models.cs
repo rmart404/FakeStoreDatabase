@@ -26,6 +26,6 @@ namespace FakestoreDatabase
         public int OrderId { get; set; }
         public string Product_Name { get; set; }
         public int Quantity { get; set; }
-        public double Subtotal { get; set; }
+        public double Total { get; set; }
     }
 }

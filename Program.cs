@@ -12,7 +12,7 @@ namespace FakestoreDatabase
 
             Person John = new Person("John");
 
-            Console.WriteLine("Hello {0}, Welcome to fakestore.\n", John.name);
+            Console.WriteLine("Hello {0}, Welcome to Fakestore.\n", John.name);
             menu();
         }
 
@@ -57,7 +57,7 @@ namespace FakestoreDatabase
                 Item item = db.Items.Where<Item>(b => b.ItemId == id).First();
                 double taxes = (item.Price * quantity) * (8.25 / 100);
 
-                db.Add(new Order { Product_Name = item.Name, Quantity = quantity, Subtotal = item.Price * quantity + taxes });
+                db.Add(new Order { Product_Name = item.Name, Quantity = quantity, Total = item.Price * quantity + taxes });
                 db.SaveChanges();
                 Console.WriteLine("Added Item to Cart\n");
 
@@ -68,12 +68,12 @@ namespace FakestoreDatabase
         {
             using (var db = new StoreContext())
             {
-                Console.WriteLine("Order ID |      Name       |    Quantity      |    Subtotal ");
+                Console.WriteLine("Order ID |      Name       |    Quantity      |    Total ");
 
                 for (int i = 3; i <= 5; i++)
                 {
                     Order order = db.Orders.Where<Order>(b => b.OrderId == i).First();
-                    Console.WriteLine("   {0}      {1}              {2}           {3}", order.OrderId, order.Product_Name, order.Quantity, order.Subtotal);
+                    Console.WriteLine("   {0}      {1}              {2}           {3}", order.OrderId, order.Product_Name, order.Quantity, order.Total);
                 }
             }
         }
@@ -86,10 +86,10 @@ namespace FakestoreDatabase
                 for (int i = 3; i <= 5; i++)
                 {
                     Order order = db.Orders.Where<Order>(b => b.OrderId == i).First();
-                    total += order.Subtotal;
+                    total += order.Total;
                 }
-                Console.WriteLine("Thank you for your purchase.");
-                Console.WriteLine("Your Subtotal was: {0}", total);
+                Console.WriteLine("Thank You!");
+                Console.WriteLine("Your Total is: {0}", total);
             }
         }
 
