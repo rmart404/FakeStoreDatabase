@@ -8,11 +8,11 @@ namespace FakestoreDatabase
         static void Main(string[] args)
         {
 
-            //inventory();
+            //inventory
 
-            Person Jesse = new Person("Jesse");
+            Person John = new Person("John");
 
-            Console.WriteLine("Hello {0}, Welcome to fakestore.\n", Jesse.name);
+            Console.WriteLine("Hello {0}, Welcome to fakestore.\n", John.name);
             menu();
         }
 
@@ -21,14 +21,11 @@ namespace FakestoreDatabase
             using (var db = new StoreContext())
             {
                 Console.WriteLine("Updated Inventory");
-                db.Add(new Item { Name = "Xbox Series X", Price = 499.99 });
-                db.Add(new Item { Name = "PS5", Price = 499.99 });
-                db.Add(new Item { Name = "Nintendo Switch", Price = 299.99 });
-                db.Add(new Item { Name = "Asus Laptop", Price = 799.99 });
-                db.Add(new Item { Name = "Dell Laptop", Price = 399.99 });
+                db.Add(new Item { Name = "iMac", Price = 799.99 });
+                db.Add(new Item { Name = "Mac Mini", Price = 399.99 });
                 db.Add(new Item { Name = "MacBook Air", Price = 999.99 });
                 db.Add(new Item { Name = "MacBook Pro", Price = 1299.99 });
-                db.Add(new Item { Name = "Samsung TV", Price = 499.99 });
+                db.Add(new Item { Name = "Sanyo TV", Price = 499.99 });
                 db.Add(new Item { Name = "LG TV", Price = 399.99 });
                 db.Add(new Item { Name = "Sony TV", Price = 649.99 });
                 db.SaveChanges();
